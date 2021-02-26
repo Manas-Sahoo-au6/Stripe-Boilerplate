@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "stripe": "^8.137.0"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}

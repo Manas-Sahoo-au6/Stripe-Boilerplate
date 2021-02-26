@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "a72211be-c493-48f4-952e-1fa2c2cb3616",
+		"name": "Stripe Node API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "creat Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"rmanas000@gmail.com\",\r\n    \"name\":\"manas\",\r\n    \"description\":\"this is first customer\",\r\n    \"address\":{\r\n        \"city\":\"jharkhand\",\r\n        \"country\":\"india\"\r\n    }\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/customer/createCustomer",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"customer",
+								"createCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updatecustomer",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"data\":{\r\n       \"balance\":100\r\n   }\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/customer/updateCustomer/cus_J0hl91CcOnc7RX",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"customer",
+								"updateCustomer",
+								"cus_J0hl91CcOnc7RX"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrive Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/customer/retriveCustomer/cus_J0hl91CcOnc7RX",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"customer",
+								"retriveCustomer",
+								"cus_J0hl91CcOnc7RX"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Charges",
+			"item": [
+				{
+					"name": "single charge",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":50000,\r\n    \"cardId\":\"card_1IOfj0ADYzUTuo7UOkMDFyJf\"\r\n}   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/charge/single",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"charge",
+								"single"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "capture charge",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/charge/capture/ ch_1IOi0dADYzUTuo7UoJ8MKSf8",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"charge",
+								"capture",
+								" ch_1IOi0dADYzUTuo7UoJ8MKSf8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Methods",
+			"item": [
+				{
+					"name": "create payment methods",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"number\": 4242424242424242,\r\n    \"exp_month\": 2,\r\n    \"exp_year\": 2022,\r\n    \"cvc\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/paymentMethod/create",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"paymentMethod",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Attach payment methods",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/paymentMethod/attach/cus_J0hl91CcOnc7RX?pmId=pm_1IOyQ1ADYzUTuo7UPedG1TJX",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"paymentMethod",
+								"attach",
+								"cus_J0hl91CcOnc7RX"
+							],
+							"query": [
+								{
+									"key": "pmId",
+									"value": "pm_1IOyQ1ADYzUTuo7UPedG1TJX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detech payment methods",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/paymentMethod/detach?pmId=pm_1IOinDADYzUTuo7UafVuQzf2",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"paymentMethod",
+								"detach"
+							],
+							"query": [
+								{
+									"key": "pmId",
+									"value": "pm_1IOinDADYzUTuo7UafVuQzf2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Payment Intents",
+			"item": [
+				{
+					"name": "create payment Intents",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/pi/create?paymentMethodId=pm_1IOyQ1ADYzUTuo7UPedG1TJX&customerId=cus_J0hl91CcOnc7RX",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"pi",
+								"create"
+							],
+							"query": [
+								{
+									"key": "paymentMethodId",
+									"value": "pm_1IOyQ1ADYzUTuo7UPedG1TJX"
+								},
+								{
+									"key": "customerId",
+									"value": "cus_J0hl91CcOnc7RX"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "capture payment Intents",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/pi/capture?piId=pi_1IOz6qADYzUTuo7UYtttdd9l",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"pi",
+								"capture"
+							],
+							"query": [
+								{
+									"key": "piId",
+									"value": "pi_1IOz6qADYzUTuo7UYtttdd9l"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Price",
+			"item": [
+				{
+					"name": "Create Price",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 10000,\r\n    \"intervel\": \"month\",\r\n    \"name\": \"PY_1234\",\r\n    \"nickname\": \"Nice\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/price/create",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"price",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "Create Card to Add multiple Cards",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"source\": \"tok_mastercard\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/card/create/cus_J0hl91CcOnc7RX",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"card",
+								"create",
+								"cus_J0hl91CcOnc7RX"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Cards of Customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/card/list/cus_J0hl91CcOnc7RX",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"card",
+								"list",
+								"cus_J0hl91CcOnc7RX"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Subscrptions",
+			"item": [
+				{
+					"name": "cancel subscription",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/subscription/cancel/sub_J13DcgKue3EXAs",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"subscription",
+								"cancel",
+								"sub_J13DcgKue3EXAs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create subscription",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": \"cus_J0hl91CcOnc7RX\",\r\n    \"priceId\": \"price_1IOzSWADYzUTuo7UsxS1kUZ2\",\r\n    \"productId\":\"prod_J11VycKGVhdjZh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/subscription/create",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"subscription",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WebHooks",
+			"item": [
+				{
+					"name": "create webook",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerId\": \"cus_J0hl91CcOnc7RX\",\r\n    \"priceId\": \"price_1IOzSWADYzUTuo7UsxS1kUZ2\",\r\n    \"productId\":\"prod_J11VycKGVhdjZh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/webHook/create",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"webHook",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost"
+		},
+		{
+			"key": "port",
+			"value": "9000"
+		}
+	]
+}
