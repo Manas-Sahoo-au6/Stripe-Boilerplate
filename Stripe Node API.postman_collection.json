@@ -96,7 +96,40 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": null
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/customer/listCustomers",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"customer",
+								"listCustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete all customers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}:{{port}}/stripe/customer/deleteAll",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"stripe",
+								"customer",
+								"deleteAll"
+							]
+						}
 					},
 					"response": []
 				}
